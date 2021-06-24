@@ -1,0 +1,394 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+
+@-webkit-keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+}
+
+.dropzone,
+.dropzone * {
+  box-sizing: border-box;
+}
+
+.dropzone {
+  min-height: 200px;
+  border: 1px solid #ced4da;
+  padding: 20px 20px;
+}
+
+.dropzone.dz-clickable {
+  cursor: pointer;
+}
+
+.dropzone.dz-clickable * {
+  cursor: default;
+}
+
+.dropzone.dz-clickable .dz-message,
+.dropzone.dz-clickable .dz-message * {
+  cursor: pointer;
+}
+
+.dropzone .dz-preview {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 16px;
+  min-height: 100px;
+}
+
+.dropzone .dz-preview:hover {
+  z-index: 1000;
+}
+
+.dropzone .dz-preview:hover .dz-details {
+  opacity: 1;
+}
+
+.dropzone .dz-preview.dz-file-preview .dz-image {
+  border-radius: 0.25rem;
+  background: #999;
+  background: linear-gradient(to bottom, #eee, #ddd);
+}
+
+.dropzone .dz-preview.dz-image-preview {
+  background: white;
+}
+
+.dropzone .dz-preview.dz-image-preview .dz-details {
+  transition: opacity 0.2s linear;
+}
+
+.dropzone .dz-preview .dz-remove {
+  font-size: 14px;
+  padding-top: 8px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  border: none;
+}
+
+.dropzone .dz-preview .dz-remove:hover {
+  text-decoration: underline;
+}
+
+.dropzone .dz-preview .dz-image {
+  border-radius: 0.25rem;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  display: block;
+  z-index: 10;
+}
+
+.dropzone .dz-preview .dz-image img {
+  display: block;
+}
+
+.dropzone .dz-preview.dz-success .dz-success-mark {
+  -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.dropzone .dz-preview .dz-success-mark,
+.dropzone .dz-preview .dz-error-mark {
+  color: #555;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 500;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin-left: -27px;
+  margin-top: -27px;
+}
+
+.dropzone .dz-preview .dz-success-mark svg,
+.dropzone .dz-preview .dz-error-mark svg {
+  display: block;
+  width: 54px;
+  height: 54px;
+}
+
+.dropzone .dz-preview.dz-processing .dz-progress {
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+
+.dropzone .dz-preview.dz-complete .dz-progress {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.dropzone .dz-preview:not(.dz-processing) .dz-progress {
+  -webkit-animation: pulse 6s ease infinite;
+  animation: pulse 6s ease infinite;
+}
+
+.dropzone .dz-preview .dz-progress {
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  left: 50%;
+  top: 50%;
+  margin-top: -8px;
+  width: 80px;
+  margin-left: -40px;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-transform: scale(1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropzone .dz-preview .dz-progress .dz-upload {
+  background: #333;
+  background: linear-gradient(to bottom, #666, #444);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  transition: width 300ms ease-in-out;
+}
+
+.dz-preview:not(.dz-complete) .dz-remove,
+.dz-message,
+.dz-error {
+  display: none !important;
+}
+
+.dz-image > img {
+  width: 100%;
+  min-height: 100%;
+}
+
+.dz-preview.dz-complete .dz-remove {
+  display: normal;
+}
+
+.dz-selected {
+  border: 3px solid black;
+}
+
+html > ::-webkit-scrollbar {
+  width: 12px;
+  background-color: #fafafa;
+}
+
+html > ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+html > ::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: #afafafaf;
+}
+
+html > ::-webkit-scrollbar-thumb:hover {
+  background-color: #afafaf;
+}
+
+body {
+  background-color: #fafafafa;
+}
+
+.mdb-select > .caret,
+.md-form > .caret {
+  display: none;
+}
+
+.divider {
+  height: 3px;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 1em 0;
+  width: 30px;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.image-wrapper16x9 {
+  padding-bottom: calc(100% / (16 / 9));
+}
+
+.image-wrapper4x3 {
+  padding-bottom: calc(100% / (4 / 3));
+}
+
+.form-elegant .font-small {
+  font-size: 0.8rem;
+}
+
+.form-elegant .z-depth-1a {
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+}
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+  box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+}
+
+i {
+  padding-left: 2px;
+  padding-right: 6px;
+}
+
+.navbar-avatar {
+  height: 28px;
+  width: 28px;
+  margin: -6px 6px;
+  border-radius: 50%;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+.box.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+
+.box.is-dragover {
+  background-color: grey;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.dz-default.dz-message {
+  display: none;
+}
+
+.dz-error {
+  display: none !important;
+  transition: visibility 5s, opacity 0.5s linear;
+}
+
+.dz-image > img {
+  width: 100%;
+  min-height: 100%;
+}
+
+.dz-selected {
+  border: 3px solid black;
+}
+
+.dz-preview:not(.dz-complete) .dz-remove {
+  display: none;
+}
+
+.dz-preview.dz-complete .dz-remove {
+  display: normal;
+}
+

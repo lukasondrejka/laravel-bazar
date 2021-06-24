@@ -1,0 +1,204 @@
+// Bootstrap
+//@import './bootstrap/bootstrap.scss';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+//@import "bootstrap/bootstrap";
+//@import "mdb/mdb";
+@import "dropzone";
+
+
+// Variables
+//////////////////////////////////////////////////////
+
+
+$background-color: #fafafa;
+
+$scrollbar-color: $background-color;
+$scrollbar-thumb-color: #afafafaf;
+$scrollbar-thumb-hover-color: #afafaf;
+$scrollbar-width: 12px;
+
+
+//////////////////////////////////////////////////////
+// variables
+
+// Scrollbar
+html > ::-webkit-scrollbar {
+    width: $scrollbar-width;
+    background-color: $scrollbar-color;
+}
+
+html > ::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+	background-color: $scrollbar-color;
+    border-radius: $scrollbar-width;
+    background-color: $scrollbar-color;
+}
+
+html > ::-webkit-scrollbar-thumb {
+    border-radius: $scrollbar-width;
+    background-color: $scrollbar-thumb-color;
+    &:hover{
+        background-color: $scrollbar-thumb-hover-color;
+    }
+}
+// Scrollbar
+
+
+
+// Body
+body{
+    background-color: #fafafafa;
+}
+
+
+// Hide .caret in Bootstrap Material Select
+.mdb-select > .caret,
+.md-form > .caret {
+    display: none;
+}
+
+// Divider
+.divider {
+    height: 3px;
+    display: block;
+    background-color: rgba(0,0,0,.1);
+    margin: 1em 0;
+    width: 30px;
+}
+
+// Image wrapper
+.image-wrapper {
+    position: relative;
+
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.image-wrapper16x9{
+    padding-bottom: calc(100% / (16 / 9));
+}
+
+.image-wrapper4x3{
+    padding-bottom: calc(100% / (4 / 3));
+}
+// Image wrapper
+
+// Form-elegant
+.form-elegant {
+    .font-small {
+        font-size: 0.8rem;
+    }
+
+    .z-depth-1a {
+        -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+        box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+    }
+
+    .z-depth-1-half,
+    .btn:hover {
+        -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+        box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+    }
+}
+// Form-elegant
+
+// Icons padding
+i{
+    padding-left: 2px;
+    padding-right: 6px;
+}
+// Icons padding
+
+// Avatar
+.navbar-avatar{
+    height: 28px;
+    width: 28px;
+    margin: -6px 6px;
+    border-radius: 50%;
+}
+// Avatar
+
+
+
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+
+.box.has-advanced-upload {
+    background-color: white;
+    outline: 2px dashed black;
+    outline-offset: -10px;
+  }
+  .box.has-advanced-upload .box__dragndrop {
+    display: inline;
+  }
+
+
+
+  .box.is-dragover {
+    background-color: grey;
+  }
+
+
+
+
+  // Pagination
+
+  .pagination {
+    justify-content: center;
+  }
+
+  // Pagination
+
+
+
+
+  .dz-default.dz-message {
+      display: none;
+  }
+
+  .dz-error {
+      display: none !important;
+      transition: visibility 5s, opacity 0.5s linear;
+  }
+
+
+  .dz-image > img{
+    width: 100%;
+    min-height: 100%;
+  }
+
+
+.dz-selected{
+    //border: 1px solid #ced4da;
+    //border: 4px solid #dadada;
+    border: 3px solid black;
+
+
+}
+
+.dz-preview:not(.dz-complete)  .dz-remove{
+    display: none;
+}
+
+.dz-preview.dz-complete .dz-remove{
+    display: normal;
+}
+
+
+
